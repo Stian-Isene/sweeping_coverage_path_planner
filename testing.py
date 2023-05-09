@@ -91,11 +91,9 @@ vertex_2 = (3., 7.)
 delta_x = (vertex_2[0] - vertex_1[0])
 delta_y = (vertex_2[1] - vertex_1[1])
 
-
-
 slope = delta_y/delta_x
 
-y_intercept =vertex_1[1] - slope*vertex_1[0]
+y_intercept = vertex_1[1] - slope*vertex_1[0]
 
 #Creating the vector from the vertices, we have to check what comes first here.
 vertex_vector = [delta_x, delta_y]
@@ -108,6 +106,8 @@ unit_vectorj = [0, 1]
 theta = rad2deg(angle_between(vertex_vector, unit_vectori))
 
 #theta = np.rad2deg(atan2(delta_y, delta_x)) #The angle between the line across the vertices and the xy-plane
+
+
 phi = 90 - theta    #In the right angled triangle between parallell lines, this angle is used.
 
 
@@ -151,7 +151,7 @@ line_test_intersected = LineString([(x1, y1), (x2, y2)])
 
 line_test_2 = LineString([(x2 + translation, maxy_1), (x1 + translation, miny_1)])
 
-plt.plot(*line_test_2.xy)
+#plt.plot(*line_test_2.xy)
 
 # for i in np.arange(x1 + translation, maxx_2, translation):
 #     line_for = LineString([(x2 + i, maxy_1), (x1 + i, miny_1)])
@@ -219,7 +219,7 @@ while (i < maxx_2):
 
     path.append([x2_vertical, y2_vertical])
 
-   # plt.plot(*LineString([(x2_, y2_), (x2_vertical, y2_vertical)]).xy)
+    # plt.plot(*LineString([(x2_, y2_), (x2_vertical, y2_vertical)]).xy)
 
     #plt.show()
     i += translation

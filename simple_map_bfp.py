@@ -2,6 +2,9 @@ import shapely
 from shapely import Polygon, LineString, Point, ops
 from shapely.geometry import mapping
 import matplotlib.pyplot as plt
+
+
+
 line = LineString([[1., 1.], [2., 1.]])
 
 poly1 = Polygon( [(0., 0.), (10., 0.), (10., 10.), (0.,10.) ] )
