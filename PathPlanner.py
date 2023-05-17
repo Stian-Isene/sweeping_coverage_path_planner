@@ -101,7 +101,7 @@ class PathPlanner:
         x, y = self.poly_outer_extremes.exterior.xy
         plt.plot(x, y)
         # plotting lines
-        plt.plot(*self.line_base_line_intersection.xy)
+        #plt.plot(*self.line_base_line_intersection.xy)
         plt.plot(*self.line_intersection_outer_extreme.xy)
         # plt.plot(*line_paralell_horizontal_movement.xy)
         # Plotting the path
@@ -110,7 +110,7 @@ class PathPlanner:
         plt.show()
 
         #Write path to file
-        with open('sweeping_path', 'w') as file:
+        with open('sweeping_path.txt', 'w') as file:
             for i in range(len(self.path)):
                 file.write(f"{self.path[i][0]},{self.path[i][1]}\n")
 
@@ -312,6 +312,9 @@ class PathPlanner:
             # Save all the path points in the path
             for path in horizontal_path:
                 self.path.append((path[0]))
+
+            for path in range(len(self.path)):
+                print(path)
 
 
     def right_to_left_acute(self):
@@ -637,9 +640,14 @@ class PathPlanner:
 if __name__ == "__main__":
 
     test_width = 2
-    vertices = [(2., 0.),(10., 0.5), (25., 3.),  (30., 7.), (10., 10), (3., 7.)]
-    vertex_1 = (25., 3.)
-    vertex_2 = (30., 7.)
+    #vertices = [(2., 0.),(10., 0.5), (25., 3.),  (30., 7.), (10., 10), (3., 7.)]
+    vertices = [(423236.3895171815 , 6769335.20677714), (423233.38284477545, 6769328.5425624)
+                , (423239.71184318454, 6769326.379024858), (423243.20974025177 , 6769332.30897843)]
+    vertex_1 = (423233.38284477545, 6769328.5425624)
+    vertex_2 = (423236.3895171815 , 6769335.20677714)
+    #poly = Polygon(vertices)
+    #x, y, = poly.exterior.xy
+    #plt.plot(x, y)
     path_planner = PathPlanner(test_width, vertex_1, vertex_2, vertices)
 
     path_planner.get_path()
